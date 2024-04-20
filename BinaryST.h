@@ -2,6 +2,7 @@
 #include<iostream>
 using namespace std;
 #include<vector>
+#include"additionalFunct.h"
 
 struct Movie {
 	vector<string> actors;
@@ -16,7 +17,7 @@ typedef Movie* moviePtr;
 
 #ifndef _BSTREE_H_
 #define _BSTREE_H_
-typedef int DATA_TYPE; // Type of node’s data
+typedef moviePtr DATA_TYPE; // Type of node’s data
 
 class BinarySearchTree
 {
@@ -37,7 +38,7 @@ private:
 	void DeleteNodeItem(TreePtr& treePtr);
 	void ProcessLeftMost(TreePtr& treePtr, DATA_TYPE& theItem);
 	bool IsLeaf(TreePtr treePtr);
-	TreePtr SearchNodeInBST(TreePtr treePtr,DATA_TYPE searchKey);
+	TreePtr SearchNodeInBST(TreePtr treePtr, DATA_TYPE searchKey);
 	void PrintBST_InOrder(TreePtr treePtr);
 	void PrintBST_PreOrder(TreePtr treePtr);
 	void PrintBST_PostOrder(TreePtr treePtr);
@@ -59,3 +60,4 @@ public:
 	void PrintBackwardInOrder();
 };
 #endif
+

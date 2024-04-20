@@ -2,6 +2,8 @@
 
 
 
+
+
 BinarySearchTree::~BinarySearchTree()
 {
 	DeleteBST(rootPtr);
@@ -20,42 +22,41 @@ bool BinarySearchTree::IsLeaf(TreePtr treePtr)
 // Add (insert) new item into the BST, whose
 // root node is pointed to by "rootPtr". If
 // the data already exists, it is ignored.
+// Sort by Alphabetical Title
 void BinarySearchTree::AddNode(DATA_TYPE newData)
 {
 	TreePtr newPtr;
 	newPtr = new BSTreeNode;
-	// Add new data in the new node’s data field
 	newPtr->data = newData;
 	newPtr->leftPtr = NULL;
 	newPtr->rightPtr = NULL;
+
 	// If the BST is empty, insert the new data in root
 	if (rootPtr == NULL)
-	{
 		rootPtr = newPtr;
-	}
+
 	else // Look for the insertion location
 	{
 		TreePtr treePtr = rootPtr;
-		TreePtr targetNodePtr;
+		TreePtr targetNodePtr = NULL;
 		while (treePtr != NULL)
 		{
 			targetNodePtr = treePtr;
 			if (newData == treePtr->data)
 				// Found same data; ignore it.
 				return;
-			else if (newData < treePtr->data)
-				// Search left subtree for insertion location
+
+			// will return 1 if newdata is alphabeticaly before treeptr->data->title
+			else if (inOrderAlph(newData->title, treePtr->data->title)) 
 				treePtr = treePtr->leftPtr;
-			else // newData > treePtr->data
-			// Search right subtree for insertion location
+
+			else 
 				treePtr = treePtr->rightPtr;
 		}
-		// "targetNodePtr" is the pointer to the
-		// parent of the new node. Decide where
-		// it will be inserted.
-		if (newData < targetNodePtr->data)
+		
+		if (inOrderAlph(newData->title, targetNodePtr->data->title))
 			targetNodePtr->leftPtr = newPtr;
-		else // insert it as its right child
+		else 
 			targetNodePtr->rightPtr = newPtr;
 	}
 }
@@ -126,6 +127,7 @@ void BinarySearchTree::PrintInOrder()
 {
 	PrintBST_InOrder(rootPtr);
 }
+
 void BinarySearchTree::PrintBST_InOrder(
 	TreePtr treePtr)
 {
@@ -134,7 +136,7 @@ void BinarySearchTree::PrintBST_InOrder(
 		// Print left BST subtree
 		PrintBST_InOrder(treePtr->leftPtr);
 		// Print Root node data
-		cout << treePtr->data << endl;
+		cout << treePtr->data->title << endl;
 		// Print right BST subtree
 		PrintBST_InOrder(treePtr->rightPtr);
 	}
@@ -199,7 +201,7 @@ void BinarySearchTree::PrintBST_BackwardInOrder(
 		// Print left BST subtree
 		PrintBST_BackwardInOrder(treePtr->leftPtr, depth + 1);
 	}
-} 
+}
 
 
 void BinarySearchTree::DeleteNode(TreePtr& treePtr, DATA_TYPE val)

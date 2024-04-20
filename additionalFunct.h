@@ -8,3 +8,5 @@ string filterYear(string target); //returns the year out of the title line by re
 string filterTitle(string title); // returns just the title by reading everything up until '('
 
 
+int alphabeticalPrecedence(char c);
+bool inOrderAlph(string targetWord, string compareWord);

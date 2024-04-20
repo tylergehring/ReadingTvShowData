@@ -40,3 +40,22 @@ string filterTitle(string title) {
 
 	return t;
 }
+
+
+int alphabeticalPrecedence(char c) {
+	return ((int)c - 48);
+}
+
+//returns true if string target word comes before compare word alphabeticaly.
+bool inOrderAlph(string targetWord, string compareWord) { 
+	int i = -1;
+	do {
+		i++;
+		if (alphabeticalPrecedence(targetWord[i]) < alphabeticalPrecedence(compareWord[i])) {
+			return 1;
+		}
+		else if (alphabeticalPrecedence(targetWord[i]) > alphabeticalPrecedence(compareWord[i])) {
+			return 0;
+		}
+	} while (alphabeticalPrecedence(targetWord[i]) == alphabeticalPrecedence(compareWord[i]));
+}

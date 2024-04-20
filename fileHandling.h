@@ -7,6 +7,7 @@
 #include<vector>
 #include<fstream>
 #include<iostream>
+#include"BinaryST.h"
 
 using namespace std;
 //#include"BinaryST.h"
@@ -19,11 +20,12 @@ private:
 	
 
 	string targetFile;
-	//BSTreePtr dataTreeRoot;
+	BinarySearchTree movieTree;
 
 public:
 	FileHandling(string file);
 	void getData();
+	void printInOrder();
 	
 	//BSTPtr getTitlesBST();
 	//BSTPtr getActorsBST(); //return

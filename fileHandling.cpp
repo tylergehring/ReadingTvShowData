@@ -25,40 +25,45 @@ FileHandling::FileHandling(string file) {
 void FileHandling::getData() {
 	fstream file;
 	file.open(targetFile);
-	
-	char c;
 	string temp;
 	
-	/* my char get line function
-	while (file >> noskipws >> c) {
-		if (c != ',' && c != ';' && c != '.' && c !='\n') {
-			c = tolower(c);
-			title += c;
-		}
-		else if (c == '\n') {
-			break;
-		}
-	}
-	*/
+	while (!file.eof()) {
 
-	getline(file, temp);
-	string year = filterYear(temp);
-	string title = filterTitle(temp);
-
-	getline(file, temp);
-	string movieType = temp;
-
-	getline(file, temp);
-	string link = temp;
-
-	getline(file, temp); //gets first actor
-	vector<string> actors;
-	while (temp.size() > 1) {
-		actors.push_back(temp);
 		getline(file, temp);
+		string year = filterYear(temp);
+		string title = filterTitle(temp);
+
+		getline(file, temp);
+		string movieType = temp;
+
+		getline(file, temp);
+		string link = temp;
+
+		getline(file, temp); //gets first actor
+		vector<string> actors;
+		while (temp.size() > 1) {
+			actors.push_back(temp);
+			getline(file, temp);
+		}
+		
+
+
+		moviePtr movieStruct;
+		movieStruct = new Movie;
+
+		movieStruct->title = title;
+		movieStruct->link = link;
+		movieStruct->movieType = movieType;
+		movieStruct->year = year;
+		movieStruct->actors = actors;
+
+		movieTree.AddNode(movieStruct);
 	}
-	
-	cout << year << " " << title << endl;
+
+
 	file.close();
 }
 
+void FileHandling::printInOrder(){
+	movieTree.PrintInOrder();
+}
