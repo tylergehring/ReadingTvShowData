@@ -48,6 +48,10 @@ int alphabeticalPrecedence(char c) {
 
 //returns true if string target word comes before compare word alphabeticaly.
 bool inOrderAlph(string targetWord, string compareWord) { 
+	if (targetWord == compareWord) {
+		return 1;
+	}
+	
 	int i = -1;
 	do {
 		i++;

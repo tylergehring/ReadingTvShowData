@@ -3,7 +3,7 @@
 
 
 int main() {
-	string tfile = "simpleData.txt";
+	string tfile = "data.txt";
 	FileHandling file(tfile);
 	file.getData();
 	file.printInOrder();
