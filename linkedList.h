@@ -1,7 +1,6 @@
 #pragma once
 
-#pragma once
-
+// Simple implementation class of a dynamic array using linked lists
 
 #include<iostream>
 using namespace std;

@@ -2,8 +2,6 @@
 
 
 
-
-
 BinarySearchTree::~BinarySearchTree()
 {
 	DeleteBST(rootPtr);
@@ -230,7 +228,7 @@ void BinarySearchTree::printActors(TreePtr treePtr, string &show) {
 
 //Public Function
 void BinarySearchTree::printShows(string actor) {
-	cout << "Shows With " << actor << "in it: " << endl;
+	cout << "Shows With " << actor << " in it: " << endl;
 	printShows(rootPtr, actor);
 }
 
@@ -238,7 +236,7 @@ void BinarySearchTree::printShows(string actor) {
 void BinarySearchTree::printShows(TreePtr &treePtr, string &actor) {
 	
 	for (int i = 0; i < treePtr->data->actors.getSize(); i++) {
-		if (treePtr->data->actors.getVal(i) == actor)
+		if (stripStr(treePtr->data->actors.getVal(i)) == stripStr(actor))
 			cout << "   " << treePtr->data->title << endl;
 	}
 

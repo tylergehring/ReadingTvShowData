@@ -68,28 +68,27 @@ void FileHandling::getData() {
 	file.close();
 }
 
-void FileHandling::printInOrder(){
-	movieTree.printShows();
-}
-
 
 
 void FileHandling::printShows() {
-
+	movieTree.printShows();
+	cout << endl;
 }
 
 void FileHandling::printActors(string show) {
 	movieTree.printActors(show);
+	cout << endl;
 }
 
 void FileHandling::printShows(string actor){
 	movieTree.printShows(actor);
+	cout << endl;
 }
 
 
 void FileHandling::printShows(int startYear, int endYear) {
 	movieTree.printShows(startYear, endYear);
-
+	cout << endl;
 }
 
 

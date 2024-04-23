@@ -1,3 +1,5 @@
+// Additional functions that are used throughout the program
+
 #pragma once
 using namespace std;
 #include<iostream>

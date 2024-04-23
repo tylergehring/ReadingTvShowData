@@ -1,9 +1,13 @@
+//Implementation class of a binary tree that is used specificaly for this project
+
+
 #pragma once
 #include<iostream>
 using namespace std;
 #include"additionalFunct.h"
 #include"linkedList.h"
 
+// node struct used in the binary tree
 struct Movie {
 	LinkedList<string> actors;
 	string title;

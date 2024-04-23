@@ -3,8 +3,7 @@
 
 //Purpose: Sort through text file and return pointers to sorted data structures
 
-#include<string>
-#include<vector>
+#include<string> //used for the getline function
 #include<fstream>
 #include<iostream>
 #include"BinaryST.h"
@@ -24,12 +23,11 @@ private:
 
 public:
 	FileHandling(string file);
-	void getData();
-	void printInOrder();
-	void printShows();
-	void printActors(string show);
-	void printShows(string actor);
-	void printShows(int startYear, int endYear);
+	void getData(); // read the data from the txt doc and move it into a binary tree
+	void printShows(); // print all shows out of the txt document
+	void printActors(string show); // print the actors of a given show
+	void printShows(string actor); // print the shows a given actor has been apart of
+	void printShows(int startYear, int endYear); //print any shows that aired durring the given time period
 
 	
 };
