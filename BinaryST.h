@@ -40,9 +40,10 @@ private:
 	bool IsLeaf(TreePtr treePtr);
 	TreePtr SearchNodeInBST(TreePtr treePtr, DATA_TYPE searchKey);
 	void PrintBST_InOrder(TreePtr treePtr);
-	void PrintBST_PreOrder(TreePtr treePtr);
-	void PrintBST_PostOrder(TreePtr treePtr);
-	void PrintBST_BackwardInOrder(TreePtr treePtr, int depth);
+	void printActors(TreePtr treePtr, string show);
+	void printShows(TreePtr treePtr, string actor);
+	//void printShows(TreePtr treePtr, int startYear, int endYear);
+
 public:
 	BinarySearchTree() { InitBSTree(); }
 	~BinarySearchTree();
@@ -53,11 +54,13 @@ public:
 	void AddNode(DATA_TYPE newData);
 	void SearchNode(DATA_TYPE searchKey);
 	//void DeleteNode(DATA_TYPE val);
-	void PrintTree();
-	void PrintInOrder();
-	void PrintPreOrder();
-	void PrintPostOrder();
-	void PrintBackwardInOrder();
+	void printShows();
+	void printActors(string show);
+	void printShows(string actor);
+	//void printShows(int startYear, int endYear);
+	//TreePtr searchShow(string show);
+	//TreePtr searchActor(string actor); 
+	
 };
 #endif
 

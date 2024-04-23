@@ -10,3 +10,10 @@ string filterTitle(string title); // returns just the title by reading everythin
 
 int alphabeticalPrecedence(char c);
 bool inOrderAlph(string targetWord, string compareWord);
+
+string stripStr(string word); //strips a string of all spaces and extra characters and returns the lowercase string
+int strToInt(string str);
+
+
+int power(int x, int power);
+

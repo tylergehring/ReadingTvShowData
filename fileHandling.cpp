@@ -65,5 +65,26 @@ void FileHandling::getData() {
 }
 
 void FileHandling::printInOrder(){
-	movieTree.PrintInOrder();
+	movieTree.printShows();
 }
+
+
+
+void FileHandling::printShows() {
+
+}
+
+void FileHandling::printActors(string show) {
+	movieTree.printActors(show);
+}
+
+void FileHandling::printShows(string actor){
+	printShows(actor);
+}
+
+
+void FileHandling::printShows(int startYear, int endYear) {
+	movieTree.printShows(startYear, endYear);
+
+}
+

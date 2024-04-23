@@ -26,6 +26,11 @@ public:
 	FileHandling(string file);
 	void getData();
 	void printInOrder();
+	void printShows();
+	void printActors(string show);
+	void printShows(string actor);
+	//void printShows(int startYear, int endYear);
+
 	
 	//BSTPtr getTitlesBST();
 	//BSTPtr getActorsBST(); //return

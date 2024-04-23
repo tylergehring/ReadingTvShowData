@@ -113,95 +113,8 @@ BinarySearchTree::SearchNodeInBST(TreePtr treePtr, DATA_TYPE key)
 }
 
 
-// PrintTree()
-// Print a BST tree uses InOrder traversal by default.
-void BinarySearchTree::PrintTree()
-{
-	PrintBST_InOrder(rootPtr);
-}
 
 
-// PrintInOrder()
-// Print BST using InOrder traversal
-void BinarySearchTree::PrintInOrder()
-{
-	PrintBST_InOrder(rootPtr);
-}
-
-void BinarySearchTree::PrintBST_InOrder(
-	TreePtr treePtr)
-{
-	if (treePtr != NULL)
-	{
-		// Print left BST subtree
-		PrintBST_InOrder(treePtr->leftPtr);
-		// Print Root node data
-		cout << treePtr->data->title << endl;
-		// Print right BST subtree
-		PrintBST_InOrder(treePtr->rightPtr);
-	}
-}
-
-// PrintPreOrder()
-// Print BST using PreOrder traversal
-void BinarySearchTree::PrintPreOrder()
-{
-	PrintBST_PreOrder(rootPtr);
-}
-void BinarySearchTree::PrintBST_PreOrder(
-	TreePtr treePtr)
-{
-	if (treePtr != NULL)
-	{
-		// Print node data
-		cout << treePtr->data << endl;
-		// Print left subtree
-		PrintBST_PreOrder(treePtr->leftPtr);
-		// Print right subtree
-		PrintBST_PreOrder(treePtr->rightPtr);
-	}
-}
-
-// PrintPostOrder()
-// Print BST using PostOrder traversal
-void BinarySearchTree::PrintPostOrder()
-{
-	PrintBST_PostOrder(rootPtr);
-}
-void BinarySearchTree::PrintBST_PostOrder(
-	TreePtr treePtr)
-{
-	if (treePtr != NULL)
-	{
-		// Print left BST subtree
-		PrintBST_PostOrder(treePtr->leftPtr);
-		// Print right BST subtree
-		PrintBST_PostOrder(treePtr->rightPtr);
-		// Print node data
-		cout << treePtr->data << endl;
-	}
-}
-
-// Print BST using InOrder traversal
-void BinarySearchTree::PrintBackwardInOrder()
-{
-	PrintBST_BackwardInOrder(rootPtr, 0);
-}
-void BinarySearchTree::PrintBST_BackwardInOrder(
-	TreePtr treePtr, int depth)
-{
-	const int INDENT = 4;
-	if (treePtr != NULL) {
-		// Print right BST subtree
-		PrintBST_BackwardInOrder(treePtr->rightPtr, depth + 1);
-		// Print data in root node
-		//cout << setw(INDENT*depth) << " ";
-		for (int i = 0; i < INDENT * depth; i++) cout << " ";
-		cout << treePtr->data << endl;
-		// Print left BST subtree
-		PrintBST_BackwardInOrder(treePtr->leftPtr, depth + 1);
-	}
-}
 
 
 void BinarySearchTree::DeleteNode(TreePtr& treePtr, DATA_TYPE val)
@@ -261,3 +174,110 @@ void BinarySearchTree::ProcessLeftMost(TreePtr& treePtr, DATA_TYPE& theItem)
 		delete delPtr;
 	}
 }
+
+
+
+
+
+/// PRINT AND FIND FUNCTIONS ///
+
+
+
+// PrintInOrder()
+// Print BST using InOrder traversal
+void BinarySearchTree::printShows()
+{
+	PrintBST_InOrder(rootPtr);
+}
+
+void BinarySearchTree::PrintBST_InOrder(
+	TreePtr treePtr)
+{
+	if (treePtr != NULL)
+	{
+		// Print left BST subtree
+		PrintBST_InOrder(treePtr->leftPtr);
+		// Print Root node data
+		cout << treePtr->data->title << endl;
+		// Print right BST subtree
+		PrintBST_InOrder(treePtr->rightPtr);
+	}
+}
+
+//Public Fuction
+void BinarySearchTree::printActors(string show) {
+	cout << "Actors in " << show << ": " << endl;
+	printActors(rootPtr, show);
+}
+
+//Private Function
+void BinarySearchTree::printActors(TreePtr treePtr, string show) {
+	if (treePtr->leftPtr != NULL)
+		printActors(treePtr->leftPtr, show);
+
+	if (stripStr(treePtr->data->title) == stripStr(show)) {
+		for (int i = 0; i < size(treePtr->data->actors); i++) {
+			cout << "   " << treePtr->data->actors[i] << endl;
+		}
+	}
+
+	if (treePtr->rightPtr != NULL)
+		printActors(treePtr->rightPtr, show);
+}
+
+
+//Public Function
+void BinarySearchTree::printShows(string actor) {
+	cout << "Shows With " << actor << "in it: " << endl;
+	printShows(rootPtr, actor);
+}
+
+//Private Function
+void BinarySearchTree::printShows(TreePtr treePtr, string actor) {
+	
+	for (int i = 0; i < treePtr->data->actors.size(); i++) {
+		if (treePtr->data->actors[i] == actor)
+			cout << "   " << treePtr->data->title << endl;
+	}
+
+	if (treePtr->leftPtr != NULL)
+		printShows(treePtr->leftPtr, actor);
+	
+	/*
+	for (int i = 0; i < treePtr->data->actors.size(); i++) {
+		if (stripStr(treePtr->data->actors[i]) == stripStr(actor))
+			cout << "   " << treePtr->data->title << endl;
+	}
+	*/
+	if (treePtr->rightPtr != NULL)
+		printShows(treePtr->rightPtr, actor);
+}
+
+/*
+//public
+void BinarySearchTree::printShows(int startYear, int endYear) {
+	cout << "Shows from " << startYear << " to " << endYear << ":" << endl;
+	printShows(rootPtr, startYear, endYear);
+}
+
+void BinarySearchTree::printShows(TreePtr treePtr, int startYear, int endYear) {
+
+	if (treePtr->leftPtr != NULL)
+		printShows(treePtr->leftPtr, startYear, endYear);
+	
+	//split years apart from the data->year string
+	string mYears = stripStr(treePtr->data->year);
+	string sYear;
+	sYear = mYears[0] + mYears[1] + mYears[2] + mYears[3];
+	cout << "SYEAR: " << sYear << endl;
+	string eYear;
+	eYear = mYears[4] + mYears[5] + mYears[6] + mYears[7];
+	cout << "EYEAR: " << eYear << endl;
+
+
+	if (treePtr->rightPtr != NULL)
+		printShows(treePtr->rightPtr, startYear, endYear);
+
+}
+
+*/
