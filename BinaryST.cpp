@@ -226,13 +226,31 @@ void BinarySearchTree::printActors(TreePtr treePtr, string show) {
 }
 
 
+
+
+
+
+
+
+
+
+// _______________________________________________________________
+//
+// THERE IS A PROBLEM WITH THESE TWO FUNCTIONS !!!
+// Each node in the binary tree is a struct that contains a list of actors...
+// this fuction is trying to iterate through those actors to see if a certain person is 
+// in the show... if they are it will print the title of the show
+// 
+// The problem is that the stack overflows...
+//
+
 //Public Function
 void BinarySearchTree::printShows(string actor) {
 	cout << "Shows With " << actor << "in it: " << endl;
 	printShows(rootPtr, actor);
 }
 
-//Private Function
+//Private Function (Recursive)
 void BinarySearchTree::printShows(TreePtr treePtr, string actor) {
 	
 	for (int i = 0; i < treePtr->data->actors.size(); i++) {
@@ -243,16 +261,18 @@ void BinarySearchTree::printShows(TreePtr treePtr, string actor) {
 	if (treePtr->leftPtr != NULL)
 		printShows(treePtr->leftPtr, actor);
 	
-	/*
-	for (int i = 0; i < treePtr->data->actors.size(); i++) {
-		if (stripStr(treePtr->data->actors[i]) == stripStr(actor))
-			cout << "   " << treePtr->data->title << endl;
-	}
-	*/
 	if (treePtr->rightPtr != NULL)
 		printShows(treePtr->rightPtr, actor);
 }
 
+
+
+
+
+
+
+
+//_________________________________________________________________
 /*
 //public
 void BinarySearchTree::printShows(int startYear, int endYear) {
