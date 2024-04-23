@@ -42,7 +42,7 @@ private:
 	void PrintBST_InOrder(TreePtr treePtr);
 	void printActors(TreePtr treePtr, string show);
 	void printShows(TreePtr treePtr, string &actor);
-	//void printShows(TreePtr treePtr, int startYear, int endYear);
+	void printShows(TreePtr treePtr, int startYear, int endYear);
 
 public:
 	BinarySearchTree() { InitBSTree(); }
@@ -54,12 +54,11 @@ public:
 	void AddNode(DATA_TYPE newData);
 	void SearchNode(DATA_TYPE searchKey);
 	//void DeleteNode(DATA_TYPE val);
-	void printShows();
-	void printActors(string show);
-	void printShows(string actor);
-	//void printShows(int startYear, int endYear);
-	//TreePtr searchShow(string show);
-	//TreePtr searchActor(string actor); 
+	void printShows(); // prints all of the shows in the binary tree.
+	void printActors(string show); // prints all of the actors of a given show
+	void printShows(string actor); // prints all shows that the given actor is in
+	void printShows(int startYear, int endYear); // prints out all shows inbetween time range
+
 	
 };
 #endif

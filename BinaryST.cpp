@@ -187,6 +187,7 @@ void BinarySearchTree::ProcessLeftMost(TreePtr& treePtr, DATA_TYPE& theItem)
 // Print BST using InOrder traversal
 void BinarySearchTree::printShows()
 {
+	cout << "All Shows in File: " << endl;
 	PrintBST_InOrder(rootPtr);
 }
 
@@ -198,7 +199,7 @@ void BinarySearchTree::PrintBST_InOrder(
 		// Print left BST subtree
 		PrintBST_InOrder(treePtr->leftPtr);
 		// Print Root node data
-		cout << treePtr->data->title << endl;
+		cout << "   " << treePtr->data->title << endl;
 		// Print right BST subtree
 		PrintBST_InOrder(treePtr->rightPtr);
 	}
@@ -228,22 +229,6 @@ void BinarySearchTree::printActors(TreePtr treePtr, string show) {
 
 
 
-
-
-
-
-
-
-// _______________________________________________________________
-//
-// THERE IS A PROBLEM WITH THESE TWO FUNCTIONS !!!
-// Each node in the binary tree is a struct that contains a list of actors...
-// this fuction is trying to iterate through those actors to see if a certain person is 
-// in the show... if they are it will print the title of the show
-// 
-// The problem is that the stack overflows...
-//
-
 //Public Function
 void BinarySearchTree::printShows(string actor) {
 	cout << "Shows With " << actor << "in it: " << endl;
@@ -269,11 +254,6 @@ void BinarySearchTree::printShows(TreePtr treePtr, string &actor) {
 
 
 
-
-
-
-//_________________________________________________________________
-/*
 //public
 void BinarySearchTree::printShows(int startYear, int endYear) {
 	cout << "Shows from " << startYear << " to " << endYear << ":" << endl;
@@ -282,22 +262,28 @@ void BinarySearchTree::printShows(int startYear, int endYear) {
 
 void BinarySearchTree::printShows(TreePtr treePtr, int startYear, int endYear) {
 
-	if (treePtr->leftPtr != NULL)
-		printShows(treePtr->leftPtr, startYear, endYear);
-	
+	//do this set of code for each node
 	//split years apart from the data->year string
 	string mYears = stripStr(treePtr->data->year);
 	string sYear;
-	sYear = mYears[0] + mYears[1] + mYears[2] + mYears[3];
-	cout << "SYEAR: " << sYear << endl;
 	string eYear;
-	eYear = mYears[4] + mYears[5] + mYears[6] + mYears[7];
-	cout << "EYEAR: " << eYear << endl;
+	for (int i = 0; i < mYears.size(); i++) {
+		if (i < 4)
+			sYear += mYears[i];
+		else {
+			eYear += mYears[i];
+		}
+	}
 
+	if (strToInt(sYear) > startYear && strToInt(sYear) < endYear || strToInt(eYear) > startYear && strToInt(eYear)) {
+		cout << "   " << treePtr->data->title << endl;
+	}
+
+	//itterate through nodes
+	if (treePtr->leftPtr != NULL)
+			printShows(treePtr->leftPtr, startYear, endYear);
 
 	if (treePtr->rightPtr != NULL)
 		printShows(treePtr->rightPtr, startYear, endYear);
 
 }
-
-*/

@@ -29,7 +29,7 @@ public:
 	void printShows();
 	void printActors(string show);
 	void printShows(string actor);
-	//void printShows(int startYear, int endYear);
+	void printShows(int startYear, int endYear);
 
 	
 	//BSTPtr getTitlesBST();

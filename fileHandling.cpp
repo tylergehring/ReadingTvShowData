@@ -82,10 +82,10 @@ void FileHandling::printShows(string actor){
 	movieTree.printShows(actor);
 }
 
-/*
+
 void FileHandling::printShows(int startYear, int endYear) {
 	movieTree.printShows(startYear, endYear);
 
 }
-*/
+
 
