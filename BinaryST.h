@@ -25,8 +25,8 @@ private:
 	typedef struct BSTreeNode
 	{
 		DATA_TYPE data;
-		BSTreeNode* leftPtr;
-		BSTreeNode* rightPtr;
+		BSTreeNode* leftPtr{ NULL };
+		BSTreeNode* rightPtr{ NULL };
 	} *TreePtr;
 	TreePtr rootPtr; // root of the BST
 	void InitBSTree()
@@ -41,7 +41,7 @@ private:
 	TreePtr SearchNodeInBST(TreePtr treePtr, DATA_TYPE searchKey);
 	void PrintBST_InOrder(TreePtr treePtr);
 	void printActors(TreePtr treePtr, string show);
-	void printShows(TreePtr treePtr, string actor);
+	void printShows(TreePtr treePtr, string &actor);
 	//void printShows(TreePtr treePtr, int startYear, int endYear);
 
 public:

@@ -79,7 +79,7 @@ void FileHandling::printActors(string show) {
 }
 
 void FileHandling::printShows(string actor){
-	printShows(actor);
+	movieTree.printShows(actor);
 }
 
 /*

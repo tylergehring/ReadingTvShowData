@@ -12,8 +12,8 @@ int main() {
 	//file.printActors("Northern Exposure:. ");
 	//file.printActors("Walker tExas Ranger");
 	
-	//file.printShows("Chris Potter");
-	file.printShows("Chuck Norris");
+	file.printShows("Chris Potter");
+	file.printShows("Tim Russ");
 
 
 	//file.printShows(2020, 2024);

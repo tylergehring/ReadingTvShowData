@@ -251,7 +251,7 @@ void BinarySearchTree::printShows(string actor) {
 }
 
 //Private Function (Recursive)
-void BinarySearchTree::printShows(TreePtr treePtr, string actor) {
+void BinarySearchTree::printShows(TreePtr treePtr, string &actor) {
 	
 	for (int i = 0; i < treePtr->data->actors.size(); i++) {
 		if (treePtr->data->actors[i] == actor)
