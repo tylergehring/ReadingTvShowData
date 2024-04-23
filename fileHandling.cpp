@@ -27,6 +27,9 @@ void FileHandling::getData() {
 	file.open(targetFile);
 	string temp;
 	
+
+	
+
 	while (!file.eof()) {
 
 		getline(file, temp);
@@ -39,15 +42,13 @@ void FileHandling::getData() {
 		getline(file, temp);
 		string link = temp;
 
+		LinkedList<string> actor;
 		getline(file, temp); //gets first actor
-		vector<string> actors;
 		while (temp.size() > 1) {
-			actors.push_back(temp);
+			actor.push(temp);
 			getline(file, temp);
 		}
 		
-
-
 		moviePtr movieStruct;
 		movieStruct = new Movie;
 
@@ -55,7 +56,10 @@ void FileHandling::getData() {
 		movieStruct->link = link;
 		movieStruct->movieType = movieType;
 		movieStruct->year = year;
-		movieStruct->actors = actors;
+
+		for (int i = 0; i < actor.getSize(); i++) {
+			movieStruct->actors.push(actor.getVal(i));
+		}
 
 		movieTree.AddNode(movieStruct);
 	}

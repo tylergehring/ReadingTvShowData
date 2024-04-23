@@ -136,7 +136,7 @@ void LinkedList<T>::print() {
 	if (p != NULL) {
 		while (p != NULL)
 		{
-			cout << p->data << endl;
+			cout << "   " << p->data << endl;
 			p = p->nxt;
 		}
 	}
@@ -227,6 +227,7 @@ bool LinkedList<T>::isEmpty() {
 template<typename T>
 T LinkedList<T>::getVal(int index) {
 	nodePtr temp = head;
+
 	for (int i = 0; i < index; i++) {
 		temp = temp->nxt;
 	}

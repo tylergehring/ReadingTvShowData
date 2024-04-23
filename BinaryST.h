@@ -1,11 +1,11 @@
 #pragma once
 #include<iostream>
 using namespace std;
-#include<vector>
 #include"additionalFunct.h"
+#include"linkedList.h"
 
 struct Movie {
-	vector<string> actors;
+	LinkedList<string> actors;
 	string title;
 	string link;
 	string movieType;
@@ -40,9 +40,9 @@ private:
 	bool IsLeaf(TreePtr treePtr);
 	TreePtr SearchNodeInBST(TreePtr treePtr, DATA_TYPE searchKey);
 	void PrintBST_InOrder(TreePtr treePtr);
-	void printActors(TreePtr treePtr, string show);
-	void printShows(TreePtr treePtr, string &actor);
-	void printShows(TreePtr treePtr, int startYear, int endYear);
+	void printActors(TreePtr treePtr, string &show);
+	void printShows(TreePtr &treePtr, string &actor);
+	void printShows(TreePtr &treePtr, int &startYear, int &endYear);
 
 public:
 	BinarySearchTree() { InitBSTree(); }

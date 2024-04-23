@@ -12,6 +12,7 @@
 
 #include"fileHandling.h"
 #include"additionalFunct.h"
+#include"BinaryST.h"
 
 
 int main() {
@@ -25,7 +26,8 @@ int main() {
 	file.printInOrder();
 	//cout << filterYear("Kung Fu : The Legend Continues(1993 - 1997)") << endl;
 	
-	file.printActors("Northern Exposure");
+	//file.printActors("Northern Exposure");
+	file.printActors("Gilligan's Island");
 	file.printActors("seinfeld");
 	
 	file.printShows("Chris Potter");
@@ -38,3 +40,25 @@ int main() {
 
 	return 0;
 }
+
+/*
+
+int main() {
+
+	moviePtr mv;
+	mv = new Movie;
+	mv->actors.push("tim");
+	mv->actors.push("bob");
+	mv->actors.push("GOD DAMN It");
+	mv->title = "st";
+
+	BinarySearchTree tree;
+
+	tree.AddNode(mv);
+
+	tree.printActors("st");
+
+
+	return 0;
+}
+*/

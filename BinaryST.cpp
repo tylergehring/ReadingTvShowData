@@ -32,9 +32,9 @@ void BinarySearchTree::AddNode(DATA_TYPE newData)
 	newPtr->rightPtr = NULL;
 
 	// If the BST is empty, insert the new data in root
-	if (rootPtr == NULL)
+	if (rootPtr == NULL) {
 		rootPtr = newPtr;
-
+	}
 	else // Look for the insertion location
 	{
 		TreePtr treePtr = rootPtr;
@@ -191,8 +191,7 @@ void BinarySearchTree::printShows()
 	PrintBST_InOrder(rootPtr);
 }
 
-void BinarySearchTree::PrintBST_InOrder(
-	TreePtr treePtr)
+void BinarySearchTree::PrintBST_InOrder(TreePtr treePtr)
 {
 	if (treePtr != NULL)
 	{
@@ -212,16 +211,16 @@ void BinarySearchTree::printActors(string show) {
 }
 
 //Private Function
-void BinarySearchTree::printActors(TreePtr treePtr, string show) {
+void BinarySearchTree::printActors(TreePtr treePtr, string &show) {
+
+	if (stripStr(treePtr->data->title) == stripStr(show)) 
+		treePtr->data->actors.print();
+		
+
 	if (treePtr->leftPtr != NULL)
 		printActors(treePtr->leftPtr, show);
 
-	if (stripStr(treePtr->data->title) == stripStr(show)) {
-		for (int i = 0; i < size(treePtr->data->actors); i++) {
-			cout << "   " << treePtr->data->actors[i] << endl;
-		}
-	}
-
+	
 	if (treePtr->rightPtr != NULL)
 		printActors(treePtr->rightPtr, show);
 }
@@ -236,10 +235,10 @@ void BinarySearchTree::printShows(string actor) {
 }
 
 //Private Function (Recursive)
-void BinarySearchTree::printShows(TreePtr treePtr, string &actor) {
+void BinarySearchTree::printShows(TreePtr &treePtr, string &actor) {
 	
-	for (int i = 0; i < treePtr->data->actors.size(); i++) {
-		if (treePtr->data->actors[i] == actor)
+	for (int i = 0; i < treePtr->data->actors.getSize(); i++) {
+		if (treePtr->data->actors.getVal(i) == actor)
 			cout << "   " << treePtr->data->title << endl;
 	}
 
@@ -260,7 +259,7 @@ void BinarySearchTree::printShows(int startYear, int endYear) {
 	printShows(rootPtr, startYear, endYear);
 }
 
-void BinarySearchTree::printShows(TreePtr treePtr, int startYear, int endYear) {
+void BinarySearchTree::printShows(TreePtr &treePtr, int &startYear, int &endYear) {
 
 	//do this set of code for each node
 	//split years apart from the data->year string
