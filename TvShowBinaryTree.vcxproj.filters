@@ -40,13 +40,13 @@
     <ClInclude Include="fileHandling.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="charArr.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BinaryST.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="additionalFunct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="linkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -139,8 +139,8 @@
   <ItemGroup>
     <ClInclude Include="additionalFunct.h" />
     <ClInclude Include="BinaryST.h" />
-    <ClInclude Include="charArr.h" />
     <ClInclude Include="fileHandling.h" />
+    <ClInclude Include="linkedList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
